@@ -1,0 +1,136 @@
+
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>CardioFlow A</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+<header>
+  <div class="logo">
+    <div class="logo-icon">♥</div>
+    <div>
+      <h1>CardioFlow A</h1>
+      <p class="subtitle">Sistema de circulación experimental</p>
+    </div>
+  </div>
+
+  <div class="badge" id="systemBadge">VISTA DE DEMOSTRACIÓN</div>
+</header>
+
+<main>
+
+  <p class="section-title">Monitor del sistema</p>
+
+  <section class="grid">
+
+    <div class="card">
+      <div class="card-label">Presión del circuito</div>
+      <div class="metric">
+        <strong id="pressure">--</strong>
+        <span>kPa</span>
+      </div>
+      <div class="metric-note" id="pressureNote">
+        Esperando datos
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="card-label">Frecuencia simulada</div>
+      <div class="metric">
+        <strong id="bpm">--</strong>
+        <span>ciclos/min</span>
+      </div>
+      <div class="metric-note" id="modeLabel">
+        Modo no seleccionado
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="card-label">Conexión Bluetooth</div>
+
+      <div class="connection-row" style="margin-top: 18px">
+        <div class="connection-status">
+          <span class="dot" id="connectionDot"></span>
+          <span id="connectionStatus">JDY-3x pendiente</span>
+        </div>
+      </div>
+
+      <div class="metric-note">
+        Módulo aún no conectado
+      </div>
+    </div>
+
+  </section>
+
+  <section class="dashboard">
+
+    <div class="card chart-card">
+      <div class="chart-header">
+        <h2>Presión en el circuito</h2>
+        <span class="chart-label" id="chartStatus">
+          Sin mediciones
+        </span>
+      </div>
+
+      <canvas id="pressureChart"></canvas>
+
+      <div class="metric-note">
+        La gráfica mostrará mediciones reales cuando el PIC envíe datos.
+      </div>
+    </div>
+
+    <div class="card">
+      <h2>Control del sistema</h2>
+
+      <p class="card-label" style="margin-top: 18px">
+        Seleccionar modo de funcionamiento
+      </p>
+
+      <div class="mode-buttons">
+        <button data-mode="NORMAL">NORMAL</button>
+        <button data-mode="TAQUI">TAQUI</button>
+        <button data-mode="BRADI">BRADI</button>
+      </div>
+
+      <button class="stop-button" id="stopBtn">
+        DETENER
+      </button>
+
+      <button class="demo" id="demoBtn"
+        style="width:100%; margin-top:12px">
+        INICIAR DEMOSTRACIÓN
+      </button>
+
+      <div class="notice" id="message">
+        Modo de demostración. No hay comunicación con el circuito.
+      </div>
+    </div>
+
+  </section>
+
+  <section class="card history">
+    <h2>Registro de eventos</h2>
+    <div class="history-list" id="history">
+      <div class="history-item">
+        <span>Sistema iniciado</span>
+        <span>Vista web</span>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer>
+  CardioFlow A · Proyecto de Ingeniería Biomédica
+  <br>
+  Prototipo experimental — No destinado a uso clínico
+</footer>
+
+<script src="app.js"></script>
+</body>
+</html>
